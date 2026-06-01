@@ -1,0 +1,10 @@
+model_id,pollutant,outcome,n,lag,var_df,lag_df,time_df,temp_df,hum_df,overdisp,converged
+M1,NO2,Respiratory,154,4,3,3,8,3,3,56.21,TRUE
+M2,PM2.5,Respiratory,154,4,3,3,8,3,3,51.187,TRUE
+M3,PM10,Respiratory,154,4,3,3,8,3,3,52.265,TRUE
+M4,NO2,ILI,154,4,3,3,8,3,3,46.46,TRUE
+M5,PM2.5,ILI,154,4,3,3,8,3,3,41.272,TRUE
+M6,PM10,ILI,154,4,3,3,8,3,3,41.169,TRUE
+M7,NO2,Pneumonia,154,4,3,3,8,3,3,13.819,TRUE
+M8,PM2.5,Pneumonia,154,4,3,3,8,3,3,12.254,TRUE
+M9,PM10,Pneumonia,154,4,3,3,8,3,3,12.678,TRUE

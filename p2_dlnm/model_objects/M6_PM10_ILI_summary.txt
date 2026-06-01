@@ -1,0 +1,50 @@
+Model ID : M6 
+Pollutant: PM10 ( PM10_mean )
+Outcome  : ILI ( ILI )
+n        : 154 
+Lag/vardf/lagdf  : 4 / 3 / 3 
+time_df/temp_df/hum_df : 8 / 3 / 3 
+Overdispersion   : 41.169 
+
+
+Call:
+glm(formula = fm, family = quasipoisson(), data = data)
+
+Coefficients:
+                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                 7.09770    0.32476  21.855  < 2e-16 ***
+cbv1.l1                    -0.05199    0.13781  -0.377  0.70660    
+cbv1.l2                    -0.24194    0.12029  -2.011  0.04643 *  
+cbv1.l3                    -0.25461    0.11208  -2.272  0.02481 *  
+cbv2.l1                    -0.35661    0.26849  -1.328  0.18651    
+cbv2.l2                     0.15105    0.20587   0.734  0.46450    
+cbv2.l3                    -0.17111    0.19540  -0.876  0.38289    
+cbv3.l1                    -0.16764    0.20050  -0.836  0.40469    
+cbv3.l2                    -0.02273    0.15053  -0.151  0.88019    
+cbv3.l3                    -0.17078    0.16128  -1.059  0.29165    
+ns(week_index, df = 8)1     0.44115    0.40585   1.087  0.27912    
+ns(week_index, df = 8)2     0.38055    0.28409   1.340  0.18280    
+ns(week_index, df = 8)3    -0.16566    0.25935  -0.639  0.52416    
+ns(week_index, df = 8)4     0.96135    0.33680   2.854  0.00504 ** 
+ns(week_index, df = 8)5    -0.47760    0.31269  -1.527  0.12917    
+ns(week_index, df = 8)6     0.66426    0.38415   1.729  0.08623 .  
+ns(week_index, df = 8)7     0.08603    0.43475   0.198  0.84346    
+ns(week_index, df = 8)8     0.07256    0.17165   0.423  0.67322    
+ns(temp_mean, df = 3)1     -0.42584    0.19382  -2.197  0.02984 *  
+ns(temp_mean, df = 3)2     -0.93600    0.29847  -3.136  0.00213 ** 
+ns(temp_mean, df = 3)3     -0.30366    0.24420  -1.243  0.21600    
+ns(humidity_mean, df = 3)1 -0.16177    0.14142  -1.144  0.25485    
+ns(humidity_mean, df = 3)2 -0.29496    0.44298  -0.666  0.50671    
+ns(humidity_mean, df = 3)3  0.30211    0.12032   2.511  0.01331 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for quasipoisson family taken to be 41.16881)
+
+    Null deviance: 14952.8  on 149  degrees of freedom
+Residual deviance:  4850.3  on 126  degrees of freedom
+  (4 observations deleted due to missingness)
+AIC: NA
+
+Number of Fisher Scoring iterations: 4
+

@@ -1,0 +1,109 @@
+pollutant,outcome,year,lag,Rc,Rc_CI_low,Rc_CI_high,Rc_class
+NO2,ILI,2023,0,0.8893,0.6744,1.0,Very high
+NO2,ILI,2023,1,0.966,0.8273,1.0,Critical
+NO2,ILI,2023,2,0.9148,0.7113,1.0,Critical
+NO2,ILI,2024,0,0.2388,0.0503,0.4379,Moderate-high
+NO2,ILI,2024,1,0.6725,0.3249,0.8784,Moderate-low
+NO2,ILI,2024,2,0.4502,0.1924,0.7572,Negligible
+NO2,ILI,2025,0,0.6972,0.3784,0.8993,Moderate-low
+NO2,ILI,2025,1,0.8272,0.6354,0.9731,High
+NO2,ILI,2025,2,0.7931,0.6153,0.9264,Moderate-high
+NO2,ILI,2026,0,0.2827,0.0,0.9486,Moderate
+NO2,ILI,2026,1,0.0862,0.0,0.3157,Critical
+NO2,ILI,2026,2,0.0339,0.0,0.2155,Critical
+NO2,pneumonia,2023,0,0.9151,0.7112,1.0,Critical
+NO2,pneumonia,2023,1,0.9791,0.8731,1.0,Critical
+NO2,pneumonia,2023,2,0.9319,0.7426,1.0,Critical
+NO2,pneumonia,2024,0,0.2129,0.0579,0.3883,Moderate-high
+NO2,pneumonia,2024,1,0.4927,0.1927,0.7986,Negligible
+NO2,pneumonia,2024,2,0.5227,0.2008,0.8384,Negligible
+NO2,pneumonia,2025,0,0.7069,0.389,0.8952,Moderate
+NO2,pneumonia,2025,1,0.7567,0.5854,0.9074,Moderate-high
+NO2,pneumonia,2025,2,0.6403,0.3339,0.8188,Low
+NO2,pneumonia,2026,0,0.7387,0.083,1.0,Moderate
+NO2,pneumonia,2026,1,0.2013,0.0,0.837,Moderate-high
+NO2,pneumonia,2026,2,0.1024,0.0,0.36,Very high
+NO2,respiratory_disease,2023,0,0.9144,0.7187,1.0,Critical
+NO2,respiratory_disease,2023,1,0.9684,0.8467,1.0,Critical
+NO2,respiratory_disease,2023,2,0.9517,0.7839,1.0,Critical
+NO2,respiratory_disease,2024,0,0.3135,0.1062,0.6369,Moderate-low
+NO2,respiratory_disease,2024,1,0.7689,0.5889,0.9289,Moderate-high
+NO2,respiratory_disease,2024,2,0.6059,0.2797,0.8504,Low
+NO2,respiratory_disease,2025,0,0.6807,0.3257,0.8851,Moderate-low
+NO2,respiratory_disease,2025,1,0.7978,0.609,0.943,Moderate-high
+NO2,respiratory_disease,2025,2,0.6987,0.3779,0.8575,Moderate-low
+NO2,respiratory_disease,2026,0,0.0741,0.0,0.3038,Critical
+NO2,respiratory_disease,2026,1,0.1154,0.0,0.3782,Very high
+NO2,respiratory_disease,2026,2,0.0627,0.0,0.25,Critical
+PM10,ILI,2023,0,0.8714,0.6995,0.9882,Very high
+PM10,ILI,2023,1,0.7158,0.3467,0.9248,Moderate
+PM10,ILI,2023,2,0.3208,0.0589,0.7264,Moderate-low
+PM10,ILI,2024,0,0.4559,0.2011,0.7488,Negligible
+PM10,ILI,2024,1,0.2552,0.0999,0.4243,Moderate
+PM10,ILI,2024,2,0.2994,0.1028,0.5862,Moderate
+PM10,ILI,2025,0,0.6338,0.2915,0.8679,Low
+PM10,ILI,2025,1,0.6967,0.406,0.8825,Moderate-low
+PM10,ILI,2025,2,0.6322,0.2766,0.8724,Low
+PM10,ILI,2026,0,0.8065,0.2172,1.0,High
+PM10,ILI,2026,1,0.3745,0.0,1.0,Low
+PM10,ILI,2026,2,0.7106,0.0218,1.0,Moderate
+PM10,pneumonia,2023,0,0.8756,0.7072,0.9866,Very high
+PM10,pneumonia,2023,1,0.8292,0.6385,0.9649,High
+PM10,pneumonia,2023,2,0.6505,0.2449,0.9027,Moderate-low
+PM10,pneumonia,2024,0,0.4048,0.1677,0.7483,Very low
+PM10,pneumonia,2024,1,0.4242,0.1871,0.7473,Very low
+PM10,pneumonia,2024,2,0.3971,0.1675,0.7203,Low
+PM10,pneumonia,2025,0,0.7428,0.5534,0.9136,Moderate
+PM10,pneumonia,2025,1,0.7538,0.5632,0.9121,Moderate-high
+PM10,pneumonia,2025,2,0.4635,0.1999,0.7583,Negligible
+PM10,pneumonia,2026,0,0.6527,0.0,1.0,Moderate-low
+PM10,pneumonia,2026,1,0.7549,0.1754,1.0,Moderate-high
+PM10,pneumonia,2026,2,0.5781,0.0,1.0,Very low
+PM10,respiratory_disease,2023,0,0.8867,0.7151,1.0,Very high
+PM10,respiratory_disease,2023,1,0.7429,0.3957,0.9382,Moderate
+PM10,respiratory_disease,2023,2,0.2593,0.0643,0.6198,Moderate
+PM10,respiratory_disease,2024,0,0.3112,0.1333,0.6497,Moderate-low
+PM10,respiratory_disease,2024,1,0.306,0.1096,0.6088,Moderate-low
+PM10,respiratory_disease,2024,2,0.2844,0.0971,0.594,Moderate
+PM10,respiratory_disease,2025,0,0.6731,0.349,0.8752,Moderate-low
+PM10,respiratory_disease,2025,1,0.6958,0.3784,0.8791,Moderate-low
+PM10,respiratory_disease,2025,2,0.5935,0.2752,0.8544,Very low
+PM10,respiratory_disease,2026,0,0.4704,0.0,0.9149,Negligible
+PM10,respiratory_disease,2026,1,0.4347,0.0,1.0,Very low
+PM10,respiratory_disease,2026,2,0.5583,0.0,1.0,Very low
+PM2.5,ILI,2023,0,0.8844,0.7095,0.9869,Very high
+PM2.5,ILI,2023,1,0.7949,0.5533,0.9836,Moderate-high
+PM2.5,ILI,2023,2,0.2465,0.0515,0.5923,Moderate-high
+PM2.5,ILI,2024,0,0.4222,0.1384,0.7496,Very low
+PM2.5,ILI,2024,1,0.2518,0.0914,0.4362,Moderate
+PM2.5,ILI,2024,2,0.3212,0.108,0.6456,Moderate-low
+PM2.5,ILI,2025,0,0.6425,0.302,0.8622,Low
+PM2.5,ILI,2025,1,0.6869,0.3742,0.881,Moderate-low
+PM2.5,ILI,2025,2,0.6792,0.3413,0.8629,Moderate-low
+PM2.5,ILI,2026,0,0.8185,0.2434,1.0,High
+PM2.5,ILI,2026,1,0.3928,0.0,1.0,Low
+PM2.5,ILI,2026,2,0.7006,0.0408,1.0,Moderate
+PM2.5,pneumonia,2023,0,0.8496,0.6661,0.9794,High
+PM2.5,pneumonia,2023,1,0.9149,0.7615,1.0,Critical
+PM2.5,pneumonia,2023,2,0.6205,0.1882,0.908,Low
+PM2.5,pneumonia,2024,0,0.5432,0.2475,0.849,Negligible
+PM2.5,pneumonia,2024,1,0.2567,0.0793,0.4642,Moderate
+PM2.5,pneumonia,2024,2,0.3037,0.1217,0.6221,Moderate-low
+PM2.5,pneumonia,2025,0,0.7466,0.5591,0.9226,Moderate
+PM2.5,pneumonia,2025,1,0.743,0.5247,0.9279,Moderate
+PM2.5,pneumonia,2025,2,0.5622,0.2492,0.8124,Very low
+PM2.5,pneumonia,2026,0,0.7195,0.0,1.0,Moderate
+PM2.5,pneumonia,2026,1,0.8028,0.1858,1.0,High
+PM2.5,pneumonia,2026,2,0.5188,0.0,1.0,Negligible
+PM2.5,respiratory_disease,2023,0,0.8747,0.6991,0.9891,Very high
+PM2.5,respiratory_disease,2023,1,0.803,0.5282,1.0,High
+PM2.5,respiratory_disease,2023,2,0.232,0.0493,0.5711,Moderate-high
+PM2.5,respiratory_disease,2024,0,0.36,0.145,0.7128,Low
+PM2.5,respiratory_disease,2024,1,0.2725,0.0632,0.554,Moderate
+PM2.5,respiratory_disease,2024,2,0.3209,0.1007,0.6732,Moderate-low
+PM2.5,respiratory_disease,2025,0,0.6902,0.3777,0.8769,Moderate-low
+PM2.5,respiratory_disease,2025,1,0.707,0.398,0.901,Moderate
+PM2.5,respiratory_disease,2025,2,0.6598,0.3054,0.8883,Moderate-low
+PM2.5,respiratory_disease,2026,0,0.5061,0.0,0.9256,Negligible
+PM2.5,respiratory_disease,2026,1,0.4087,0.0,1.0,Very low
+PM2.5,respiratory_disease,2026,2,0.5271,0.0,1.0,Negligible

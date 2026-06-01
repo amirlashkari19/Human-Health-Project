@@ -1,0 +1,9 @@
+Analysis of Deviance Table
+
+Model 1: respiratory_disease ~ cb + winter_flag + ns(week_index, df = 8) + 
+    ns(temp_mean, df = 3) + ns(humidity_mean, df = 3)
+Model 2: respiratory_disease ~ cb + cb_winter + winter_flag + ns(week_index, 
+    df = 8) + ns(temp_mean, df = 3) + ns(humidity_mean, df = 3)
+  Resid. Df Resid. Dev Df Deviance      F Pr(>F)
+1       125     6816.3                          
+2       116     6331.3  9   485.02 0.9592 0.4775

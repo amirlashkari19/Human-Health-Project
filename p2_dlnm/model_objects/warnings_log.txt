@@ -1,0 +1,9 @@
+[M1 NO2/respiratory_disease] row names were found from a short variable and have been discarded
+[M2 PM2.5/respiratory_disease] row names were found from a short variable and have been discarded
+[M3 PM10/respiratory_disease] row names were found from a short variable and have been discarded
+[M4 NO2/ILI] row names were found from a short variable and have been discarded
+[M5 PM2.5/ILI] row names were found from a short variable and have been discarded
+[M6 PM10/ILI] row names were found from a short variable and have been discarded
+[M7 NO2/pneumonia] row names were found from a short variable and have been discarded
+[M8 PM2.5/pneumonia] row names were found from a short variable and have been discarded
+[M9 PM10/pneumonia] row names were found from a short variable and have been discarded

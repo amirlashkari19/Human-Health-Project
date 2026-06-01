@@ -1,0 +1,5 @@
+seasonality,cum_RR,cum_RR_low,cum_RR_high,dispersion,AIC_proxy
+ns_week_index_df6,2.045,1.305,3.204,57.45,7176.3
+ns_week_index_df8,1.778,1.052,3.006,56.21,6881.6
+ns_week_index_df10,1.606,1.005,2.566,45.46,5599.5
+fourier_sin52_cos52_sin26_cos26,0.756,0.492,1.16,50.08,6436.7

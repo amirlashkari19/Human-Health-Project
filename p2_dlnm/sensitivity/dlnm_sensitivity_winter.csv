@@ -1,0 +1,3 @@
+scenario,n,cum_RR,cum_RR_low,cum_RR_high,note
+non_winter_(cb_only_in_interaction_model),154,2.024,0.375,10.928,Reference: cb_winter set to 0 (non-winter weeks)
+winter_only_refit,73,0.083,0.027,0.251,winter-only refit (winter_flag==1 sub-sample)

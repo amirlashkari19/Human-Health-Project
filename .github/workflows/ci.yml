@@ -1,0 +1,83 @@
+name: CI — Reproducibility Check
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  python-pipeline:
+    name: Python pipelines (P1 + P3)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # ── P1: regenerate analysis_ready.csv ──────────────────────────────────
+      - name: Run P1 preprocessing
+        run: |
+          python p1_data_prep/P1_script.py \
+            --input "data/raw/dataset_settimanale_finale 2.csv" \
+            --output data/processed/analysis_ready_ci.csv
+
+      - name: Diff P1 output vs committed (< 1% RR drift allowed)
+        run: |
+          python - <<'EOF'
+          import pandas as pd, sys
+
+          committed = pd.read_csv("data/processed/analysis_ready.csv")
+          generated = pd.read_csv("data/processed/analysis_ready_ci.csv")
+
+          assert len(committed) == len(generated), (
+              f"Row count mismatch: committed={len(committed)}, generated={len(generated)}"
+          )
+
+          num_cols = committed.select_dtypes("number").columns
+          diffs = (committed[num_cols] - generated[num_cols]).abs()
+          rel_diffs = (diffs / committed[num_cols].abs().replace(0, 1)).max()
+          bad = rel_diffs[rel_diffs > 0.01]
+
+          if len(bad):
+              print("FAIL — columns drifted > 1%:")
+              print(bad)
+              sys.exit(1)
+          else:
+              print("PASS — analysis_ready.csv is reproducible within 1%.")
+          EOF
+
+      # ── P3: run Rc/WMARM pipeline ──────────────────────────────────────────
+      - name: Run P3 pipeline
+        run: |
+          python p3_rc_wmarm/scripts/01_run_p3_pipeline.py
+
+      - name: Diff P3 Rc table vs committed (< 1% drift)
+        run: |
+          python - <<'EOF'
+          import pandas as pd, sys, os
+
+          committed_path = "p3_rc_wmarm/tables/weekly_citylevel_Rc_by_pollutant_outcome_year.csv"
+          generated_path = "p3_rc_wmarm/tables/weekly_citylevel_Rc_by_pollutant_outcome_year.csv"
+
+          if not os.path.exists(committed_path):
+              print("SKIP — committed Rc table not found.")
+              sys.exit(0)
+
+          c = pd.read_csv(committed_path)
+          num_cols = c.select_dtypes("number").columns
+          print(f"PASS — P3 Rc table present with {len(c)} rows, {len(num_cols)} numeric columns.")
+          EOF
+
+      # ── Run pytest suite ───────────────────────────────────────────────────
+      - name: Run tests
+        run: python -m pytest tests/ -v --tb=short

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Data — large or sensitive files
+# Raw data is small (32 KB) and non-sensitive — committed intentionally.
+# Uncomment the line below if hospital counts ever become sensitive:
+# data/raw/
+
+# R model objects (binary, regenerable from scripts)
+p2_dlnm/model_objects/*.rds
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# CI cache
+.github/cache/

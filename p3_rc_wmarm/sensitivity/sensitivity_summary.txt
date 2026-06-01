@@ -1,0 +1,12 @@
+Sensitivity grid (pc x lag) summary — primary outcome respiratory_disease
+=========================================================================
+
+Top WMARM-like se by pollutant (max across grid):
+pollutant
+PM2.5    3.5647
+NO2      2.7740
+PM10     1.7253
+
+Comparison with P2 DLNM:
+  P2 found NO2 -> respiratory the only significant signal (cum RR 1.778; 1.052, 3.006).
+  Higher WMARM-like se for NO2 here would be concordant with that result.

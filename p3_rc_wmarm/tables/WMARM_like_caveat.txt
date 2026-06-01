@@ -1,0 +1,9 @@
+WMARM-like caveat
+=================
+The original APHREH-ADSMap WMARM is a population-weighted spatial aggregation
+across multiple Basic Spatial Areas (BSAs). This dataset contains a single
+city-level BSA (Milan as one unit), so population-weighted spatial aggregation
+is mathematically trivial. The score reported here is therefore a WMARM-LIKE
+relevance score, computed as the inverse-CI-weighted standardized effect
+(se = Vul / sd_r) summarized across years for each (pollutant, outcome, lag),
+and is not a full spatial WMARM.

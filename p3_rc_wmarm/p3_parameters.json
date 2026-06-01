@@ -1,0 +1,85 @@
+{
+  "pollutants": [
+    "NO2_mean",
+    "PM25_mean",
+    "PM10_mean"
+  ],
+  "outcomes": [
+    "respiratory_disease",
+    "ILI",
+    "pneumonia"
+  ],
+  "primary_outcome": "respiratory_disease",
+  "pc_default": 0.75,
+  "pc_grid": [
+    0.5,
+    0.6,
+    0.7,
+    0.75,
+    0.8,
+    0.9
+  ],
+  "lags": [
+    0,
+    1,
+    2
+  ],
+  "baseline_windows": [
+    3,
+    4,
+    5
+  ],
+  "n_boot": 1000,
+  "noise_sd": 0.05,
+  "population": 1407044,
+  "seed": 42,
+  "rc_class_bands": [
+    [
+      0.0,
+      0.05,
+      "Negligible"
+    ],
+    [
+      0.05,
+      0.1,
+      "Very low"
+    ],
+    [
+      0.1,
+      0.15,
+      "Low"
+    ],
+    [
+      0.15,
+      0.2,
+      "Moderate-low"
+    ],
+    [
+      0.2,
+      0.25,
+      "Moderate"
+    ],
+    [
+      0.25,
+      0.3,
+      "Moderate-high"
+    ],
+    [
+      0.3,
+      0.35,
+      "High"
+    ],
+    [
+      0.35,
+      0.4,
+      "Very high"
+    ],
+    [
+      0.4,
+      0.501,
+      "Critical"
+    ]
+  ],
+  "n_weeks": 154,
+  "period": "2023-W18 -> 2026-W16"
+}

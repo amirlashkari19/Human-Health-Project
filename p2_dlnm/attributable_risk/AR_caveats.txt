@@ -1,0 +1,18 @@
+Attributable risk caveat
+========================
+These attributable fractions are computed against benchmark counterfactual
+reference exposures (NO2=10, PM2.5=5, PM10=15 ug/m3) aligned with WHO 2021
+Global Air Quality Guidelines. They quantify the share of weekly cases that
+would NOT have occurred had ambient exposure been at the reference level,
+assuming the fitted DLNM is the true causal model.
+
+They are NOT proof of causality:
+ - The model is an associational time-series regression.
+ - Only the primary NO2 -> respiratory disease association has a 95% CI for
+   cumulative RR excluding 1; AR estimates for the other 8 models inherit
+   that non-significance and their intervals will frequently cross zero.
+ - The 95% bootstrap intervals reflect only model-coefficient uncertainty,
+   not measurement error, model-form uncertainty, or exposure misclassification.
+
+Use the AR table to communicate magnitude under the stated counterfactual
+rather than to claim a deterministic preventable fraction.

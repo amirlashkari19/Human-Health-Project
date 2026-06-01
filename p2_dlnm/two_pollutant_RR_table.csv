@@ -1,0 +1,4 @@
+model_id,outcome,n,dispersion,cum_RR_NO2,cum_RR_NO2_low,cum_RR_NO2_high,cum_RR_PM10,cum_RR_PM10_low,cum_RR_PM10_high
+M2P_respiratory_disease,respiratory_disease,150,41.58,2.797,1.8,4.346,0.69,0.584,0.815
+M2P_ILI,ILI,150,34.66,1.829,0.92,3.636,0.661,0.51,0.856
+M2P_pneumonia,pneumonia,150,12.22,1.354,0.71,2.583,0.77,0.603,0.983

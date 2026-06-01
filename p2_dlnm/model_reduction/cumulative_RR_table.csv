@@ -1,0 +1,10 @@
+model_id,pollutant,outcome,reference,p75_value,cum_RR,cum_RR_low,cum_RR_high
+M1,NO2,Respiratory,10,42.03,1.778,1.052,3.006
+M2,PM2.5,Respiratory,5,24.07,0.928,0.677,1.272
+M3,PM10,Respiratory,15,34.25,0.931,0.777,1.116
+M4,NO2,ILI,10,42.03,0.963,0.427,2.17
+M5,PM2.5,ILI,5,24.07,0.944,0.58,1.536
+M6,PM10,ILI,15,34.25,0.894,0.679,1.177
+M7,NO2,Pneumonia,10,42.03,0.768,0.378,1.56
+M8,PM2.5,Pneumonia,5,24.07,0.848,0.559,1.286
+M9,PM10,Pneumonia,15,34.25,0.927,0.729,1.179
