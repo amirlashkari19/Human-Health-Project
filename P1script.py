@@ -1,5 +1,4 @@
-# Preprocessing and data cleaning — HHLab project, Milan 2023-2026
-#
+# Preprocessing and data cleaning 
 #
 # What it does in plain terms:
 #   - loads the raw weekly dataset exported from ARPA Lombardia / AREU
