@@ -5,7 +5,6 @@ matplotlib>=3.7
 seaborn>=0.12
 
 # Phase 2 (R) - DLNM models.
-# These are R packages, not pip packages, so they are not installed by
-# `pip install -r requirements.txt`. Install them once from an R console:
-#   install.packages(c("dlnm", "MASS", "dplyr", "ggplot2", "readr", "broom"))
+# Install from an R console:
+install.packages(c("dlnm", "MASS", "dplyr", "ggplot2", "readr", "broom"))
 # (the "splines" package ships with base R)
