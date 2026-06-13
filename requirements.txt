@@ -8,3 +8,8 @@ seaborn>=0.12
 # Install from an R console:
 install.packages(c("dlnm", "MASS", "dplyr", "ggplot2", "readr", "broom"))
 # (the "splines" package ships with base R)
+
+# Phase 3 (Python) - Rc-WMARM like
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
