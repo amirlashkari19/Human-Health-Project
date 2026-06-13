@@ -2,12 +2,14 @@
 
 A weekly time-series study of how ambient air pollution relates to respiratory
 emergency department (ED) visits in Milan. The project is organised into phases.
-This document covers the first two:
+This document covers the first three:
 
 - **Phase 1 - Data preparation and exploratory analysis:** build one clean
   weekly dataset and the exploratory charts.
 - **Phase 2 - Distributed Lag Non-Linear Models (DLNM):** model how weekly
   pollutant exposure relates to respiratory ED visits.
+- **Phase 3 - Rc / WMARM-like analysis:** check the same question with a second,
+  non-parametric method that shares no assumptions with the DLNM.
 
 Each phase reads from a single shared dataset, so the cleaning and the main
 choices are made once and reused, which keeps the whole workflow easy to follow
@@ -18,15 +20,16 @@ and to reproduce on another machine.
 ```
 Phase 1 - Preprocessing/     data preparation and EDA (Python)
 Phase 2 - DLNM/              DLNM models, sensitivity, attributable risk (R)
-analysis_ready.csv          the clean dataset produced by Phase 1 and used by Phase 2
-requirements.txt            dependencies for both phases
+Phase 3 - Rc-WMARM/          Rc / WMARM-like relevance analysis (Python)
+analysis_ready.csv          the clean dataset produced by Phase 1, used by Phases 2 and 3
+requirements.txt            Python dependencies for Phases 1 and 3
 ```
 
 ## Setup
 
-Phase 1 uses Python and Phase 2 uses R, so you need both.
+Phases 1 and 3 use Python; Phase 2 uses R, so you need both.
 
-Python (Phase 1):
+Python (Phases 1 and 3):
 
 ```
 pip install -r requirements.txt
@@ -230,3 +233,83 @@ its results into the subfolders below, which are created automatically.
   than hide it, as an honest assessment of the method's limits.
 - The attributable-risk numbers are computed under a stated counterfactual and
   are associational, not proof of cause and effect (see `AR_caveats.txt`).
+
+---
+
+# Phase 3 - Rc / WMARM-like Analysis
+
+This phase looks at the same question as Phase 2 but with a different,
+non-parametric method: a weekly, city-level adaptation of the APHREH-ADSMap
+relevance approach. Using a second method that shares no modelling assumptions
+with the DLNM is a deliberate check: if both methods point to the same pollutant,
+the finding is more trustworthy. It starts from `analysis_ready.csv` and runs the
+whole pipeline with one command.
+
+## Files
+
+| File | What it is |
+|------|------------|
+| `rc_wmarm_analysis.py` | The single script that runs the whole analysis. |
+| `analysis_ready.csv` | The Phase 1 output, used as input. |
+
+## How to run
+
+With Python 3.10 or newer and the packages in `requirements.txt`:
+
+```
+python rc_wmarm_analysis.py
+```
+
+The script reads `analysis_ready.csv` from the same folder and writes all results
+into subfolders that it creates automatically.
+
+## What the method does, in plain terms
+
+1. **Exposure classification.** For each pollutant and each year, a week is
+   labelled "exposed" if its value is above that year's 75th percentile. Using a
+   yearly threshold keeps the comparison fair when overall pollution drifts
+   between years.
+2. **Incidence and lagging.** Weekly ED visits are turned into an incidence per
+   resident, and shifted by 0, 1 and 2 weeks to test for delayed effects.
+3. **Baseline and differential incidence.** Each week is compared with the median
+   of its non-exposed neighbours within plus or minus three weeks (widened to
+   four or five if too few neighbours are available). This local comparison
+   removes the seasonal pattern without a regression.
+4. **Exposure weights.** Weeks that are far above the threshold get more weight,
+   so the strongest pollution weeks count for more.
+5. **Bootstrap weighted Mann-Whitney test.** A resampling test (1,000 repeats)
+   asks whether exposed weeks have a higher differential incidence than
+   non-exposed weeks, giving a relevance score (Vul) between 0 and 1.
+6. **Rc and the 9-class label.** The score is summarised with a confidence
+   interval and placed on a nine-level scale from Negligible to Critical.
+7. **WMARM-like score.** The yearly scores are combined into one city-level
+   number per pollutant, outcome and lag.
+8. **Sensitivity grid.** The whole thing is repeated over a grid of thresholds
+   and lags, to check that the result does not depend on one chosen threshold.
+
+## Outputs
+
+| Folder | Contents |
+|--------|----------|
+| `rc_wmarm/tables/` | Exposure classification, lagged and differential incidence, exposure weights, the bootstrap results, the Rc tables, and the city-level WMARM-like summary. |
+| `rc_wmarm/figures/` | The exposure-weight timeline and the threshold-by-lag surfaces for each pollutant. |
+| `rc_wmarm/sensitivity/` | The sensitivity grid and a short summary. |
+| `data/processed/p3_parameters.json` | A record of every parameter used, for reproducibility. |
+
+## Main choices
+
+- We use a single, city-level area, because the health data exist only at city
+  level. The original spatial step of the method is therefore replaced by a
+  summary across years; this is stated openly and the score is called
+  "WMARM-like" rather than a full spatial WMARM (see `WMARM_like_caveat.txt`).
+- The baseline window is local in time (plus or minus three weeks), which plays
+  the same role as the seasonal adjustment in the DLNM but without a model.
+- All random steps use a fixed seed, so the results are the same on every run.
+
+## Notes and limitations
+
+- The score is a measure of relevance and association, not proof of cause.
+- The 2023 and 2026 results are less reliable because those years are only partly
+  covered (the data start in week 18 of 2023 and end in week 16 of 2026), which
+  leaves fewer weeks to compare. This is visible in the tables and is taken into
+  account when reading the results.
