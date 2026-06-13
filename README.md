@@ -17,8 +17,7 @@ The main output is `analysis_ready.csv`. This is the file the next phases
 read. Every later script starts from it, so the cleaning rules and the outlier
 decision are made once, in one place, and are easy to check.
 
-The script also draws nine figures (the same ones used in the report) in the
-`p1_figures` folder.
+The script also draws nine figures.
 
 ## Files in this folder
 
