@@ -1,15 +1,10 @@
-# Phase 1 (Python) - data preparation and exploratory analysis
+# Python phases (1, 3, 4)
 pandas>=2.0
 numpy>=1.24
 matplotlib>=3.7
-seaborn>=0.12
+seaborn>=0.12      # Phase 1 figures
+scipy>=1.10        # Phase 4 (Spearman screening)
 
-# Phase 2 (R) - DLNM models.
-# Install from an R console:
-install.packages(c("dlnm", "MASS", "dplyr", "ggplot2", "readr", "broom"))
+# Phase 2 uses R, not Python. Install its packages from an R console:
+#   install.packages(c("dlnm", "MASS", "dplyr", "ggplot2", "readr", "broom"))
 # (the "splines" package ships with base R)
-
-# Phase 3 (Python) - Rc-WMARM like
-pandas>=2.0
-numpy>=1.24
-matplotlib>=3.7

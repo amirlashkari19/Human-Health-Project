@@ -1,15 +1,17 @@
 # Air Pollution and Respiratory Health in Milan (2023-2026)
 
 A weekly time-series study of how ambient air pollution relates to respiratory
-emergency department (ED) visits in Milan. The project is organised into phases.
-This document covers the first three:
+emergency department (ED) visits in Milan. The project is organised into four
+phases:
 
 - **Phase 1 - Data preparation and exploratory analysis:** build one clean
   weekly dataset and the exploratory charts.
-- **Phase 2 - Distributed Lag Non-Linear Models (DLNM):** model how weekly
-  pollutant exposure relates to respiratory ED visits.
+- **Phase 2 - Distributed Lag Non-Linear Models (DLNM):** the main analysis of
+  how weekly pollutant exposure relates to respiratory ED visits.
 - **Phase 3 - Rc / WMARM-like analysis:** check the same question with a second,
   non-parametric method that shares no assumptions with the DLNM.
+- **Phase 4 - Variable screening (3S-GeoXAI Stage I) and spatial context:**
+  confirm the predictor choices, and place the results on a map.
 
 Each phase reads from a single shared dataset, so the cleaning and the main
 choices are made once and reused, which keeps the whole workflow easy to follow
@@ -21,15 +23,16 @@ and to reproduce on another machine.
 Phase 1 - Preprocessing/     data preparation and EDA (Python)
 Phase 2 - DLNM/              DLNM models, sensitivity, attributable risk (R)
 Phase 3 - Rc-WMARM/          Rc / WMARM-like relevance analysis (Python)
-analysis_ready.csv          the clean dataset produced by Phase 1, used by Phases 2 and 3
-requirements.txt            Python dependencies for Phases 1 and 3
+Phase 4 - 3S-GeoXAI/         variable screening (Python) + QGIS spatial maps
+analysis_ready.csv          the clean dataset from Phase 1, used by Phases 2, 3 and 4
+requirements.txt            Python dependencies for Phases 1, 3 and 4
 ```
 
 ## Setup
 
-Phases 1 and 3 use Python; Phase 2 uses R, so you need both.
+Phases 1, 3 and 4 use Python; Phase 2 uses R, so you need both.
 
-Python (Phases 1 and 3):
+Python (Phases 1, 3 and 4):
 
 ```
 pip install -r requirements.txt
@@ -313,3 +316,63 @@ into subfolders that it creates automatically.
   covered (the data start in week 18 of 2023 and end in week 16 of 2026), which
   leaves fewer weeks to compare. This is visible in the tables and is taken into
   account when reading the results.
+
+---
+
+# Phase 4 - Variable Screening (3S-GeoXAI Stage I) and Spatial Context
+
+This phase has two parts. The first is a variable-screening script that confirms,
+with a simple and transparent method, the predictor choices used in Phase 2. The
+second is a set of QGIS maps that place the study and its results in their
+geographic frame.
+
+## Part A - Variable screening (`3S-GeoXAI/`)
+
+This is Stage I of the 3S-GeoXAI framework: a univariate Spearman screening of
+the candidate predictors against each outcome, followed by collinearity removal.
+Stages II (MGWR) and III (Random Forest + SHAP) are not run, by design: the
+health data exist only at city level (no spatial grid for MGWR) and 154 weekly
+observations are too few for a reliable Random Forest with SHAP. Stage I
+therefore acts as a check that supports the DLNM design, not as a separate
+discovery method.
+
+| File | What it is |
+|------|------------|
+| `stage1_screening.py` | The screening script. Reads `analysis_ready.csv` from the same folder. |
+| `analysis_ready.csv` | The Phase 1 output, used as input. |
+
+Run it with Python and the packages in `requirements.txt`:
+
+```
+python stage1_screening.py
+```
+
+It writes its results to `stage1_output/`: ranked-predictor tables and figures
+per outcome, a combined three-panel ranking figure, the list of collinear pairs
+and the keep/drop decisions, and a lagged-correlation heatmap (lags 0-3) that
+supports the choice of lag window in the DLNM.
+
+As expected on a seasonal time series, the screening flags the pollutants as
+correlated with the seasonal driver (temperature and the Fourier terms). This is
+the expected result and is exactly why a DLNM is used in Phase 2; it is not
+evidence that the pollutants are irrelevant.
+
+## Part B - QGIS spatial context (`QGIS/`)
+
+These maps were produced in QGIS to give the study a geographic frame. They are
+contextual only: the health outcomes are city-level, so no district-level
+health-risk claim is made.
+
+| File | What it is |
+|------|------------|
+| `milan_stations_clean.csv` | The ARPA monitoring stations in and around Milan (coordinates, station type, and which pollutants each one measures). |
+| `map3_Rc_respiratory_full.csv` | The city-level Rc results from Phase 3 (pollutant, year, lag, Rc, confidence interval, class, direction), formatted for the map inset. |
+| `map3_Rc_respiratory_compact.csv` | A shorter version of the same table. |
+| `maps/map1_monitoring_stations_pollutants.png` | The ARPA stations inside Milan and the pollutants they record. |
+| `maps/Map2_NIL_Respiratory_2024.png` | Respiratory ED visits for 2024 shown over Milan's NIL districts, for spatial context only (the values are a population-based allocation, not measured per district). |
+| `maps/map3_citylevel_Rc_inset.png` | The Phase 3 Rc results placed as an inset over the city. |
+| `maps/map4_yearly_pollution_panels.png` | Year-by-year panels pairing pollution levels with respiratory demand. |
+
+The maps reuse the Phase 3 Rc output, so they stay consistent with the rest of
+the analysis. They were prepared interactively in QGIS rather than by a script,
+so the CSVs above are the inputs and the PNGs are the exported results.
