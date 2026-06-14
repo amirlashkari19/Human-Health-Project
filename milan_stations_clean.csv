@@ -1,0 +1,17 @@
+NomeStazione,Idstazione,Comune,Provincia,lat,lng,DataStart,has_NO2,has_PM10,has_PM25,StationType,AllPollutants
+Arconate v. De Gasperi,551,Arconate,MI,45.54852147,8.84732669,20/01/1999,YES,NO,NO,NO2 only,Biossido di Azoto | Monossido di Carbonio | Ossidi di Azoto | Ozono
+Cassano d'Adda 2-v.Milano,683,Cassano d'Adda,MI,45.52647322,9.515991,17/02/2006,YES,YES,YES,NO2 + PM2.5 + PM10,Ammoniaca | Biossido di Azoto | Ossidi di Azoto | PM10 (SM2005) | Particelle sospese PM2.5
+Cinisello Balsamo v.Lincoln,529,Cinisello Balsamo,MI,45.55232831,9.22776572,24/11/1988,YES,NO,NO,NO2 only,Biossido di Azoto
+Cormano v. Edison,544,Cormano,MI,45.547597,9.166983,24/10/1994,YES,NO,NO,NO2 only,Biossido di Azoto | Ossidi di Azoto | Ozono
+Magenta v. F. Turati,546,Magenta,MI,45.46242074,8.88021388,15/04/2008,YES,YES,NO,NO2 + PM10,Arsenico | Benzo(a)pirene | Biossido di Azoto | Cadmio | Nikel | Ossidi di Azoto | PM10 (SM2005) | Piombo
+Milano Pascal Città Studi,705,Milano,MI,45.478347,9.231667,1/4/2008,YES,YES,YES,NO2 + PM2.5 + PM10,Ammoniaca | Arsenico | Benzene | Benzo(a)pirene | Biossido di Azoto | Biossido di Zolfo | BlackCarbon | Cadmio | Nikel | Ossidi di Azoto | Ozono | PM10 (SM2005) | Particelle sospese PM2.5 | Piombo
+Milano Verziere,528,Milano,MI,45.46334886,9.19532511,24/11/1988,YES,YES,NO,NO2 + PM10,Biossido di Azoto | Ossidi di Azoto | Ozono | PM10 (SM2005)
+Milano v.Liguria,539,Milano,MI,45.44386047,9.16794489,24/10/1991,YES,NO,NO,NO2 only,Biossido di Azoto | Ossidi di Azoto
+Milano v.Marche,501,Milano,MI,45.49631883,9.19093444,13/09/2012,YES,YES,YES,NO2 + PM2.5 + PM10,Ammoniaca | Benzene | Biossido di Azoto | BlackCarbon | Monossido di Carbonio | Ossidi di Azoto | PM10 (SM2005) | Particelle sospese PM2.5
+Milano v.Senato,548,Milano,MI,45.470501,9.19746075,21/04/1995,YES,YES,YES,NO2 + PM2.5 + PM10,Arsenico | Benzene | Benzo(a)pirene | Biossido di Azoto | BlackCarbon | Cadmio | Monossido di Carbonio | Nikel | Ossidi di Azoto | PM10 (SM2005) | Particelle sospese PM2.5 | Piombo
+Motta Visconti v. De Gasperi,545,Motta Visconti,MI,45.28196356,8.98857592,17/03/1998,YES,NO,NO,NO2 only,Ammoniaca | Biossido di Azoto | Biossido di Zolfo | Ossidi di Azoto | Ozono
+Pioltello Limito,531,Pioltello,MI,45.48363242,9.32736196,12/5/1989,YES,YES,NO,NO2 + PM10,Biossido di Azoto | Ossidi di Azoto | Ozono | PM10 (SM2005)
+Rho via Buon Gesù,514,Rho,MI,45.52342919,9.0446025,3/10/1991,YES,NO,NO,NO2 only,Biossido di Azoto | Ossidi di Azoto
+San Giuliano Milanese via Milano,606,San Giuliano Milanese,MI,45.39619767,9.28269897,13/01/2000,YES,NO,NO,NO2 only,Biossido di Azoto | Monossido di Carbonio | Ossidi di Azoto
+Sesto San Giovanni v. Cesare da Sesto,504,Sesto San Giovanni,MI,45.53476819,9.23610903,1/1/2017,YES,NO,YES,NO2 + PM2.5,Biossido di Azoto | Monossido di Carbonio | Ossidi di Azoto | Particelle sospese PM2.5
+Turbigo,517,Turbigo,MI,45.52655611,8.73650211,1/8/2023,YES,YES,YES,NO2 + PM2.5 + PM10,Biossido di Azoto | Ossidi di Azoto | PM10 (SM2005) | Particelle sospese PM2.5
